@@ -3,28 +3,41 @@ export const runtime = "nodejs";
 
 import { readSessions } from "@/lib/persist";
 
+type Submission = {
+  erreurs?: number;
+  score?: number;
+  createdAt?: number;
+};
+
 export async function GET(
   _req: Request,
-  { params }: { params: { sessionId: string } }
+  ctx: { params: Promise<{ sessionId: string }> }
 ) {
+  const { sessionId } = await ctx.params;
+
   const sessions = readSessions();
-  const session = sessions[params.sessionId];
-const rows = session.submissions;
+  const session = sessions[sessionId];
 
-rows.sort((a: any, b: any) => {
-  // plus fort = moins d'erreurs
-  if ((a.erreurs ?? 999999) !== (b.erreurs ?? 999999)) {
-    return (a.erreurs ?? 999999) - (b.erreurs ?? 999999);
+  if (!session || !Array.isArray(session.submissions)) {
+    return Response.json([], { status: 200 });
   }
-  // tie-breaker: plus gros score
-  if ((a.score ?? 0) !== (b.score ?? 0)) {
-    return (b.score ?? 0) - (a.score ?? 0);
-  }
-  // tie-breaker final: premier arrivé
-  return (a.createdAt ?? 0) - (b.createdAt ?? 0);
-});
 
-return Response.json(rows);
+  const rows: Submission[] = [...session.submissions];
 
-  return Response.json(session ? session.submissions : []);
+  rows.sort((a, b) => {
+    // 1️⃣ Moins d'erreurs = meilleur
+    if ((a.erreurs ?? Infinity) !== (b.erreurs ?? Infinity)) {
+      return (a.erreurs ?? Infinity) - (b.erreurs ?? Infinity);
+    }
+
+    // 2️⃣ Score le plus élevé
+    if ((a.score ?? 0) !== (b.score ?? 0)) {
+      return (b.score ?? 0) - (a.score ?? 0);
+    }
+
+    // 3️⃣ Premier arrivé
+    return (a.createdAt ?? 0) - (b.createdAt ?? 0);
+  });
+
+  return Response.json(rows, { status: 200 });
 }
