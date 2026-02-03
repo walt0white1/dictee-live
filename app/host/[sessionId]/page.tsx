@@ -27,9 +27,24 @@ function buildSevereSet(diff: any[]) {
 // ✅ Petit helper: retourne toujours un nombre (0 si manquant)
 // + accepte "erreurs" OU "errors" au cas où
 function getFautes(r: any) {
+  // 1) si l'API fournit erreurs, on l'utilise
   const v = r?.erreurs ?? r?.errors;
-  return Number.isFinite(v) ? v : 0;
+  if (Number.isFinite(v)) return v;
+
+  // 2) sinon on calcule depuis diff
+  const diff = r?.diff;
+  if (!Array.isArray(diff)) return 0;
+
+  // sub = mauvais mot (1 faute)
+  // ins = mot en trop (1 faute)
+  // del = mot manquant (1 faute)
+  return diff.reduce((acc: number, t: any) => {
+    if (!t) return acc;
+    if (t.type === "sub" || t.type === "ins" || t.type === "del") return acc + 1;
+    return acc;
+  }, 0);
 }
+
 
 export default function HostPage() {
   const { sessionId } = useParams<{ sessionId: string }>();
