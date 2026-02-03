@@ -1,39 +1,25 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useMemo, useState } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useState } from "react";
 
 export default function PlayPage() {
   const { sessionId } = useParams<{ sessionId: string }>();
-
-  // ✅ NextAuth session
-  const { data: session, status } = useSession();
-  const isAuthed = status === "authenticated";
-
-  // ✅ pseudo auto si connecté (fallback: "")
-  const twitchPseudo = useMemo(() => {
-    const name = session?.user?.name;
-    return typeof name === "string" ? name : "";
-  }, [session]);
 
   const [pseudo, setPseudo] = useState("");
   const [texte, setTexte] = useState("");
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // ✅ le pseudo envoyé : Twitch si connecté, sinon input
-  const pseudoToSend = isAuthed ? twitchPseudo : pseudo;
-
   async function submit() {
-    if (!pseudoToSend.trim()) return alert("Mets ton pseudo Twitch 🙂");
+    if (!pseudo.trim()) return alert("Mets ton pseudo Twitch 🙂");
     if (!texte.trim()) return alert("Écris la dictée avant d’envoyer 🙂");
 
     setLoading(true);
     const res = await fetch("/api/submission", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sessionId, pseudo: pseudoToSend, texte }),
+      body: JSON.stringify({ sessionId, pseudo, texte }),
     });
     setLoading(false);
 
@@ -64,76 +50,21 @@ export default function PlayPage() {
     <main className="container">
       <div className="row" style={{ justifyContent: "space-between" }}>
         <div>
-          <h1 className="h1" style={{ fontSize: 30 }}>
-            Écris la dictée
-          </h1>
+          <h1 className="h1" style={{ fontSize: 30 }}>Écris la dictée</h1>
           <p className="sub">Pseudo Twitch + texte, puis “Soumettre”.</p>
         </div>
-
-        <div className="row" style={{ gap: 10 }}>
-          <span className="badge badgeRed">🟥 Live</span>
-
-          {/* ✅ Auth Twitch */}
-          {!isAuthed ? (
-            <button
-              className="btn btnGhost"
-              onClick={() =>
-                signIn("twitch", { callbackUrl: `/play/${sessionId}` })
-              }
-              disabled={status === "loading"}
-              style={{ whiteSpace: "nowrap" }}
-            >
-              {status === "loading" ? "..." : "Se connecter Twitch"}
-            </button>
-          ) : (
-            <button
-              className="btn btnGhost"
-              onClick={() => signOut({ callbackUrl: `/play/${sessionId}` })}
-              style={{ whiteSpace: "nowrap" }}
-            >
-              Déconnexion
-            </button>
-          )}
-        </div>
+        <span className="badge badgeRed">🟥 Live</span>
       </div>
 
       <div style={{ height: 14 }} />
 
       <div className="card">
-        {/* ✅ Petit bandeau état connexion */}
-        <div
-          className="row"
-          style={{
-            justifyContent: "space-between",
-            marginBottom: 10,
-            alignItems: "center",
-          }}
-        >
-          {!isAuthed ? (
-            <span className="sub">
-              Optionnel : connecte-toi avec Twitch pour auto-remplir ton pseudo.
-            </span>
-          ) : (
-            <span className="sub">
-              Connecté en tant que <b>{twitchPseudo || "Twitch"}</b>
-            </span>
-          )}
-
-          {!isAuthed ? (
-            <span className="badge">👤 Invité</span>
-          ) : (
-            <span className="badge">✅ Twitch</span>
-          )}
-        </div>
-
         <div className="row">
           <input
             className="input"
-            value={isAuthed ? twitchPseudo : pseudo}
+            value={pseudo}
             onChange={(e) => setPseudo(e.target.value)}
             placeholder="Pseudo Twitch"
-            disabled={isAuthed}
-            style={isAuthed ? { opacity: 0.9, cursor: "not-allowed" } : undefined}
           />
         </div>
 
@@ -149,7 +80,9 @@ export default function PlayPage() {
         <div style={{ height: 12 }} />
 
         <div className="row" style={{ justifyContent: "space-between" }}>
-          <span className="sub">Astuce : relis vite avant d’envoyer 😉</span>
+          <span className="sub">
+            Astuce : relis vite avant d’envoyer 😉
+          </span>
 
           <button className="btn btnRed" onClick={submit} disabled={loading}>
             {loading ? "Envoi..." : "Soumettre"}
