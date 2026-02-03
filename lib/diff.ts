@@ -45,9 +45,9 @@ export type DiffToken =
   | { type: "ok"; word: string }
   | { type: "del"; word: string }
   | { type: "ins"; word: string }
-  | { type: "sub"; from: string; to: string };
+  | { type: "sub"; from: string; to: string; sev?: "medium" | "severe" };
 
-/* ================= HELPERS (petite/grosse faute) ================= */
+/* ================= HELPERS ================= */
 
 function isPunctuationToken(t: string) {
   return /^[.,;:!?()]+$/.test(t);
@@ -57,49 +57,6 @@ function stripDiacritics(s: string) {
   return (s || "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
-}
-
-/**
- * Calcule la pénalité à appliquer :
- * - grosse faute = 1
- * - petite faute = 0.5
- *
- * Petite faute par défaut :
- * - ponctuation (ins/del)
- * - substitution qui ne change QUE les accents (ex: "élève" -> "eleve")
- */
-export function computePenalty(diff: DiffToken[]) {
-  let penalty = 0;
-
-  for (const t of diff) {
-    if (t.type === "ok") continue;
-
-    // Petite faute : ponctuation ajoutée/enlevée
-    if (t.type === "del" && isPunctuationToken(t.word)) {
-      penalty += 0.5;
-      continue;
-    }
-    if (t.type === "ins" && isPunctuationToken(t.word)) {
-      penalty += 0.5;
-      continue;
-    }
-
-    // Petite faute : accent uniquement (option activée ici)
-    if (t.type === "sub") {
-      const a = stripDiacritics(t.from);
-      const b = stripDiacritics(t.to);
-
-      if (a === b) {
-        penalty += 0.5;
-        continue;
-      }
-    }
-
-    // Sinon : grosse faute
-    penalty += 1;
-  }
-
-  return penalty;
 }
 
 /* ================= LEVENSHTEIN MOT À MOT ================= */
@@ -127,6 +84,79 @@ function levenshteinWord(a: string, b: string) {
 
   return dp[la][lb];
 }
+
+/* ================= SCORING / PENALTY ================= */
+/**
+ * Barème voulu :
+ * - sub grave = 1
+ * - sub moyenne = 0.5
+ * - ins (mot en trop) = 0.5
+ * - del (mot manquant) = 0.5
+ *
+ * On retourne :
+ * - penalty : total des points retirés
+ * - erreurs : nombre d'erreurs (événements)
+ *
+ * Et on tag les substitutions :
+ * - t.sev = "severe" | "medium"
+ */
+export function computePenalty(diff: DiffToken[]) {
+  let penalty = 0;
+  let erreurs = 0;
+
+  for (const t of diff) {
+    if (t.type === "ok") continue;
+
+    // ⚪ gris : mot manquant / en trop = -0.25
+    if (t.type === "del") {
+      penalty += 0.25;
+      erreurs += 1;
+      continue;
+    }
+    if (t.type === "ins") {
+      penalty += 0.25;
+      erreurs += 1;
+      continue;
+    }
+
+    // 🟠/🔴 substitution : moyenne (-0.5) ou grave (-1)
+    if (t.type === "sub") {
+      const from = String(t.from ?? "");
+      const to = String(t.to ?? "");
+
+      // 🟠 moyenne si accents seulement
+      const a = stripDiacritics(from);
+      const b = stripDiacritics(to);
+      if (a === b) {
+        t.sev = "medium";
+        penalty += 0.5;
+        erreurs += 1;
+        continue;
+      }
+
+      // 🟠 moyenne si très proche (distance <= 1)
+      const d = levenshteinWord(from.toLowerCase(), to.toLowerCase());
+      if (d <= 1) {
+        t.sev = "medium";
+        penalty += 0.5;
+        erreurs += 1;
+        continue;
+      }
+
+      // 🔴 grave sinon
+      t.sev = "severe";
+      penalty += 1;
+      erreurs += 1;
+      continue;
+    }
+  }
+
+  // ✅ arrondi au quart de point (0.25)
+  penalty = Math.round(penalty * 4) / 4;
+
+  return { penalty, erreurs };
+}
+
 
 /* ================= DIFF WORDS (LCS) ================= */
 

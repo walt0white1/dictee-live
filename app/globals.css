@@ -349,10 +349,9 @@ summary{
 
 .tSubWrong{
   background: rgba(239,68,68,.10);
-  color: rgba(185,28,28,.85);
+  color: rgb(185, 28, 28);
   padding: 2px 6px;
   border-radius: 8px;
-  text-decoration: line-through;
   font-weight: 700;
   opacity: .55;
   margin-right: 6px;
@@ -388,7 +387,7 @@ summary{
 }
 
 @keyframes pulseRed{
-  0%{ box-shadow:0 0 0 0 rgba(239,68,68,.24); }
+  0%{ box-shadow:0 0 0 0 rgba(239, 68, 68, 0.637); }
   70%{ box-shadow:0 0 0 12px rgba(239,68,68,0); }
   100%{ box-shadow:0 0 0 0 rgba(239,68,68,0); }
 }
@@ -396,7 +395,6 @@ summary{
   background: rgba(239,68,68,0.22);
   padding: 2px 6px;
   border-radius: 8px;
-  text-decoration: line-through;
   text-decoration-thickness: 2px;
 }
 
@@ -464,7 +462,83 @@ summary{
 /* ===== Avatars & identities (Host) ===== */
 /* 🟠 Erreur moyenne (sub proche) */
 .tSubWrongMed {
-  color: rgba(234, 88, 12, 0.95); /* orange */
+  color: rgb(234, 90, 12); /* orange */
   font-weight: 700;
   text-decoration: line-through;
 }
+/* 🔴 Erreur grave : petite animation discrète */
+/* 🍏 Pulse "Apple-like": subtil, smooth, premium */
+.severePulse {
+  display: inline-block;
+  position: relative;
+  border-radius: 6px;
+  padding: 0 3px;
+
+  /* un léger boost de lisibilité */
+  will-change: transform, filter;
+  transform: translateZ(0);
+  animation: applePulse 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* petit halo soft derrière (glow premium, discret) */
+.severePulse::after {
+  content: "";
+  position: absolute;
+  inset: -3px -4px;
+  border-radius: 10px;
+  pointer-events: none;
+
+  background: radial-gradient(
+    closest-side,
+    rgb(239, 68, 68),
+    rgba(239, 68, 68, 0.00) 70%
+  );
+
+  opacity: 0;
+  filter: blur(6px);
+  transform: scale(0.96);
+  animation: appleGlow 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes applePulse {
+  0% {
+    transform: translateZ(0) scale(1);
+    filter: saturate(1);
+  }
+  45% {
+    transform: translateZ(0) scale(1.045);
+    filter: saturate(1.05);
+  }
+  100% {
+    transform: translateZ(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
+@keyframes appleGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+/* ♿ Respect "Reduce motion" */
+@media (prefers-reduced-motion: reduce) {
+  .severePulse,
+  .severePulse::after {
+    animation: none !important;
+  }
+}
+.tSubCorrect { color: rgba(37, 99, 235, 0.95); font-weight: 700; } /* bleu */
+.tSubWrong { color: rgba(230, 6, 6, 0.95); font-weight: 800; }   /* rouge */
+.tSubWrongMed { color: rgba(255, 145, 0, 0.63); font-weight: 800; }/* orange */
+.tIns { color: rgba(100,116,139,.95); }                            /* gris */
+.tDel { color: rgba(100,116,139,.65); }                            /* gris plus léger */

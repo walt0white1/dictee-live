@@ -17520,5 +17520,1538 @@
       }
     ],
     "createdAt": 1770072313985
+  },
+  "nO_rqg": {
+    "texteReference": "une animation une seule fois (au lieu d’infini)\n\nou une animation au hover seulement\n\nou un pulse plus “flash” stream-style",
+    "submissions": [
+      {
+        "pseudo": "matteo",
+        "texte": "une animation une seule fois (au lieu d’infini)\n\nou une animation au hover seulement\n\nou un pulse plus “flache” stream-style",
+        "score": 19,
+        "penalty": 1,
+        "diff": [
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "animation"
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "seule"
+          },
+          {
+            "type": "ok",
+            "word": "fois"
+          },
+          {
+            "type": "ok",
+            "word": "("
+          },
+          {
+            "type": "ok",
+            "word": "au"
+          },
+          {
+            "type": "ok",
+            "word": "lieu"
+          },
+          {
+            "type": "ok",
+            "word": "d'infini"
+          },
+          {
+            "type": "ok",
+            "word": ")"
+          },
+          {
+            "type": "ok",
+            "word": "ou"
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "animation"
+          },
+          {
+            "type": "ok",
+            "word": "au"
+          },
+          {
+            "type": "ok",
+            "word": "hover"
+          },
+          {
+            "type": "ok",
+            "word": "seulement"
+          },
+          {
+            "type": "ok",
+            "word": "ou"
+          },
+          {
+            "type": "ok",
+            "word": "un"
+          },
+          {
+            "type": "ok",
+            "word": "pulse"
+          },
+          {
+            "type": "ok",
+            "word": "plus"
+          },
+          {
+            "type": "sub",
+            "from": "“flash”",
+            "to": "“flache”"
+          },
+          {
+            "type": "ok",
+            "word": "stream-style"
+          }
+        ],
+        "createdAt": 1770146579549
+      }
+    ],
+    "createdAt": 1770146564629
+  },
+  "AVGzTi": {
+    "texteReference": "Si tu colles-moi le bout de ton HostPage (la partie r.diff.map) et ton CSS actuel (tSubWrong, tIns, tSubCorrect, severePulse), je te renvoie le patch exact ligne par ligne sans que tu perdes ton design.",
+    "submissions": [
+      {
+        "pseudo": "matteo",
+        "texte": "Si tu colles-moi le bout de ton HostPag (la partie r.diff.map) est ton CS actuel (tSubWrong, tIns tSubCorrect severePulse je te renvoie le patch exact ligne par ligne sans que tu perdes ton desig",
+        "score": 15,
+        "penalty": 5,
+        "erreurs": 10,
+        "diff": [
+          {
+            "type": "ok",
+            "word": "si"
+          },
+          {
+            "type": "ok",
+            "word": "tu"
+          },
+          {
+            "type": "ok",
+            "word": "colles-moi"
+          },
+          {
+            "type": "ok",
+            "word": "le"
+          },
+          {
+            "type": "ok",
+            "word": "bout"
+          },
+          {
+            "type": "ok",
+            "word": "de"
+          },
+          {
+            "type": "ok",
+            "word": "ton"
+          },
+          {
+            "type": "sub",
+            "from": "hostpage",
+            "to": "hostpag",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "("
+          },
+          {
+            "type": "ok",
+            "word": "la"
+          },
+          {
+            "type": "ok",
+            "word": "partie"
+          },
+          {
+            "type": "ok",
+            "word": "r"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "diff"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "map"
+          },
+          {
+            "type": "ok",
+            "word": ")"
+          },
+          {
+            "type": "sub",
+            "from": "et",
+            "to": "est",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "ton"
+          },
+          {
+            "type": "sub",
+            "from": "css",
+            "to": "cs",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "actuel"
+          },
+          {
+            "type": "ok",
+            "word": "("
+          },
+          {
+            "type": "ok",
+            "word": "tsubwrong"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "tins"
+          },
+          {
+            "type": "del",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "tsubcorrect"
+          },
+          {
+            "type": "del",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "severepulse"
+          },
+          {
+            "type": "del",
+            "word": ")"
+          },
+          {
+            "type": "del",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "je"
+          },
+          {
+            "type": "ok",
+            "word": "te"
+          },
+          {
+            "type": "ok",
+            "word": "renvoie"
+          },
+          {
+            "type": "ok",
+            "word": "le"
+          },
+          {
+            "type": "ok",
+            "word": "patch"
+          },
+          {
+            "type": "ok",
+            "word": "exact"
+          },
+          {
+            "type": "ok",
+            "word": "ligne"
+          },
+          {
+            "type": "ok",
+            "word": "par"
+          },
+          {
+            "type": "ok",
+            "word": "ligne"
+          },
+          {
+            "type": "ok",
+            "word": "sans"
+          },
+          {
+            "type": "ok",
+            "word": "que"
+          },
+          {
+            "type": "ok",
+            "word": "tu"
+          },
+          {
+            "type": "ok",
+            "word": "perdes"
+          },
+          {
+            "type": "ok",
+            "word": "ton"
+          },
+          {
+            "type": "del",
+            "word": "design"
+          },
+          {
+            "type": "del",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "desig"
+          }
+        ],
+        "createdAt": 1770149622924
+      }
+    ],
+    "createdAt": 1770149596622
+  },
+  "P921je": {
+    "texteReference": "",
+    "submissions": [
+      {
+        "pseudo": "matteo",
+        "texte": "mon oncle marc est journaliste . il voyage partout sur la planète et rédige des articles pour les journaux . son travail est difficle difficile car il voit souvent la famine , l'injustiseles conflits et la guerre . chaque jour , il voit des gens qui souffrent ou qui sont malheureux . mais mon oncle adore son travail . il souhaite que ses textes aident les gens à mieux s'entendre . il espère qu'ils aideront à créer un monde meilleur",
+        "score": 0,
+        "penalty": 20,
+        "erreurs": 80,
+        "diff": [
+          {
+            "type": "ins",
+            "word": "mon"
+          },
+          {
+            "type": "ins",
+            "word": "oncle"
+          },
+          {
+            "type": "ins",
+            "word": "marc"
+          },
+          {
+            "type": "ins",
+            "word": "est"
+          },
+          {
+            "type": "ins",
+            "word": "journaliste"
+          },
+          {
+            "type": "ins",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "il"
+          },
+          {
+            "type": "ins",
+            "word": "voyage"
+          },
+          {
+            "type": "ins",
+            "word": "partout"
+          },
+          {
+            "type": "ins",
+            "word": "sur"
+          },
+          {
+            "type": "ins",
+            "word": "la"
+          },
+          {
+            "type": "ins",
+            "word": "planète"
+          },
+          {
+            "type": "ins",
+            "word": "et"
+          },
+          {
+            "type": "ins",
+            "word": "rédige"
+          },
+          {
+            "type": "ins",
+            "word": "des"
+          },
+          {
+            "type": "ins",
+            "word": "articles"
+          },
+          {
+            "type": "ins",
+            "word": "pour"
+          },
+          {
+            "type": "ins",
+            "word": "les"
+          },
+          {
+            "type": "ins",
+            "word": "journaux"
+          },
+          {
+            "type": "ins",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "son"
+          },
+          {
+            "type": "ins",
+            "word": "travail"
+          },
+          {
+            "type": "ins",
+            "word": "est"
+          },
+          {
+            "type": "ins",
+            "word": "difficle"
+          },
+          {
+            "type": "ins",
+            "word": "difficile"
+          },
+          {
+            "type": "ins",
+            "word": "car"
+          },
+          {
+            "type": "ins",
+            "word": "il"
+          },
+          {
+            "type": "ins",
+            "word": "voit"
+          },
+          {
+            "type": "ins",
+            "word": "souvent"
+          },
+          {
+            "type": "ins",
+            "word": "la"
+          },
+          {
+            "type": "ins",
+            "word": "famine"
+          },
+          {
+            "type": "ins",
+            "word": ","
+          },
+          {
+            "type": "ins",
+            "word": "l'injustiseles"
+          },
+          {
+            "type": "ins",
+            "word": "conflits"
+          },
+          {
+            "type": "ins",
+            "word": "et"
+          },
+          {
+            "type": "ins",
+            "word": "la"
+          },
+          {
+            "type": "ins",
+            "word": "guerre"
+          },
+          {
+            "type": "ins",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "chaque"
+          },
+          {
+            "type": "ins",
+            "word": "jour"
+          },
+          {
+            "type": "ins",
+            "word": ","
+          },
+          {
+            "type": "ins",
+            "word": "il"
+          },
+          {
+            "type": "ins",
+            "word": "voit"
+          },
+          {
+            "type": "ins",
+            "word": "des"
+          },
+          {
+            "type": "ins",
+            "word": "gens"
+          },
+          {
+            "type": "ins",
+            "word": "qui"
+          },
+          {
+            "type": "ins",
+            "word": "souffrent"
+          },
+          {
+            "type": "ins",
+            "word": "ou"
+          },
+          {
+            "type": "ins",
+            "word": "qui"
+          },
+          {
+            "type": "ins",
+            "word": "sont"
+          },
+          {
+            "type": "ins",
+            "word": "malheureux"
+          },
+          {
+            "type": "ins",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "mais"
+          },
+          {
+            "type": "ins",
+            "word": "mon"
+          },
+          {
+            "type": "ins",
+            "word": "oncle"
+          },
+          {
+            "type": "ins",
+            "word": "adore"
+          },
+          {
+            "type": "ins",
+            "word": "son"
+          },
+          {
+            "type": "ins",
+            "word": "travail"
+          },
+          {
+            "type": "ins",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "il"
+          },
+          {
+            "type": "ins",
+            "word": "souhaite"
+          },
+          {
+            "type": "ins",
+            "word": "que"
+          },
+          {
+            "type": "ins",
+            "word": "ses"
+          },
+          {
+            "type": "ins",
+            "word": "textes"
+          },
+          {
+            "type": "ins",
+            "word": "aident"
+          },
+          {
+            "type": "ins",
+            "word": "les"
+          },
+          {
+            "type": "ins",
+            "word": "gens"
+          },
+          {
+            "type": "ins",
+            "word": "à"
+          },
+          {
+            "type": "ins",
+            "word": "mieux"
+          },
+          {
+            "type": "ins",
+            "word": "s'entendre"
+          },
+          {
+            "type": "ins",
+            "word": "."
+          },
+          {
+            "type": "ins",
+            "word": "il"
+          },
+          {
+            "type": "ins",
+            "word": "espère"
+          },
+          {
+            "type": "ins",
+            "word": "qu'ils"
+          },
+          {
+            "type": "ins",
+            "word": "aideront"
+          },
+          {
+            "type": "ins",
+            "word": "à"
+          },
+          {
+            "type": "ins",
+            "word": "créer"
+          },
+          {
+            "type": "ins",
+            "word": "un"
+          },
+          {
+            "type": "ins",
+            "word": "monde"
+          },
+          {
+            "type": "ins",
+            "word": "meilleur"
+          }
+        ],
+        "createdAt": 1770150310606
+      }
+    ],
+    "createdAt": 1770150294294
+  },
+  "JzwYy0": {
+    "texteReference": "Transcrire, analyser et décider en sécurité — serveurs dédiés à Paris, anonymisation par défaut, chiffrement post‑quantique.\n\nDicte transforme la façon dont vous menez et gérez vos réunions.\n\nGrâce à une technologie d'IA avancée, Dicte crée des comptes-rendus automatiques sur la base des échanges enregistrés en réunion ou de notes vocales personnelles.\n\nDicte offre un enregistrement, une transcription et un traitement fluides des discussions en réunion, rendant chaque réunion plus productive et accessible.",
+    "submissions": [
+      {
+        "pseudo": "matteo",
+        "texte": "Transcrire, analyser et décier en sécurité — serveurs dédiés à Paris, anonymisation par défaut, chiffrement post‑quantique.\n\nDicte transforme la faon dont vous menez et gérez vos réunions.\n\nGrâce à une tchnologie d'I avancée, Dcte crée des comptes-rendus automatiques sur la base des échanges enregistrés en réunion ou de notes vocales personnelles\n\nDicte offre un enregistrement, une transcription et un traitement fluides des discussions en réunion, rendant chaque réunion plus productive et accessible",
+        "score": 17,
+        "penalty": 3,
+        "erreurs": 9,
+        "diff": [
+          {
+            "type": "ok",
+            "word": "transcrire"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "analyser"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "sub",
+            "from": "décider",
+            "to": "décier",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "en"
+          },
+          {
+            "type": "ok",
+            "word": "sécurité"
+          },
+          {
+            "type": "ok",
+            "word": "—"
+          },
+          {
+            "type": "ok",
+            "word": "serveurs"
+          },
+          {
+            "type": "ok",
+            "word": "dédiés"
+          },
+          {
+            "type": "ok",
+            "word": "à"
+          },
+          {
+            "type": "ok",
+            "word": "paris"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "anonymisation"
+          },
+          {
+            "type": "ok",
+            "word": "par"
+          },
+          {
+            "type": "ok",
+            "word": "défaut"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "chiffrement"
+          },
+          {
+            "type": "ok",
+            "word": "post‑quantique"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "dicte"
+          },
+          {
+            "type": "ok",
+            "word": "transforme"
+          },
+          {
+            "type": "ok",
+            "word": "la"
+          },
+          {
+            "type": "sub",
+            "from": "façon",
+            "to": "faon",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "dont"
+          },
+          {
+            "type": "ok",
+            "word": "vous"
+          },
+          {
+            "type": "ok",
+            "word": "menez"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "gérez"
+          },
+          {
+            "type": "ok",
+            "word": "vos"
+          },
+          {
+            "type": "ok",
+            "word": "réunions"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "grâce"
+          },
+          {
+            "type": "ok",
+            "word": "à"
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "del",
+            "word": "technologie"
+          },
+          {
+            "type": "del",
+            "word": "d'ia"
+          },
+          {
+            "type": "ins",
+            "word": "tchnologie"
+          },
+          {
+            "type": "ins",
+            "word": "d'i"
+          },
+          {
+            "type": "ok",
+            "word": "avancée"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "sub",
+            "from": "dicte",
+            "to": "dcte",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "crée"
+          },
+          {
+            "type": "ok",
+            "word": "des"
+          },
+          {
+            "type": "ok",
+            "word": "comptes-rendus"
+          },
+          {
+            "type": "ok",
+            "word": "automatiques"
+          },
+          {
+            "type": "ok",
+            "word": "sur"
+          },
+          {
+            "type": "ok",
+            "word": "la"
+          },
+          {
+            "type": "ok",
+            "word": "base"
+          },
+          {
+            "type": "ok",
+            "word": "des"
+          },
+          {
+            "type": "ok",
+            "word": "échanges"
+          },
+          {
+            "type": "ok",
+            "word": "enregistrés"
+          },
+          {
+            "type": "ok",
+            "word": "en"
+          },
+          {
+            "type": "ok",
+            "word": "réunion"
+          },
+          {
+            "type": "ok",
+            "word": "ou"
+          },
+          {
+            "type": "ok",
+            "word": "de"
+          },
+          {
+            "type": "ok",
+            "word": "notes"
+          },
+          {
+            "type": "ok",
+            "word": "vocales"
+          },
+          {
+            "type": "ok",
+            "word": "personnelles"
+          },
+          {
+            "type": "del",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "dicte"
+          },
+          {
+            "type": "ok",
+            "word": "offre"
+          },
+          {
+            "type": "ok",
+            "word": "un"
+          },
+          {
+            "type": "ok",
+            "word": "enregistrement"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "transcription"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "un"
+          },
+          {
+            "type": "ok",
+            "word": "traitement"
+          },
+          {
+            "type": "ok",
+            "word": "fluides"
+          },
+          {
+            "type": "ok",
+            "word": "des"
+          },
+          {
+            "type": "ok",
+            "word": "discussions"
+          },
+          {
+            "type": "ok",
+            "word": "en"
+          },
+          {
+            "type": "ok",
+            "word": "réunion"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "rendant"
+          },
+          {
+            "type": "ok",
+            "word": "chaque"
+          },
+          {
+            "type": "ok",
+            "word": "réunion"
+          },
+          {
+            "type": "ok",
+            "word": "plus"
+          },
+          {
+            "type": "ok",
+            "word": "productive"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "accessible"
+          },
+          {
+            "type": "del",
+            "word": "."
+          }
+        ],
+        "createdAt": 1770150360851
+      },
+      {
+        "pseudo": "papa",
+        "texte": "Transcrire, analyser et décider en sécuriter — serveurs dédiés à Paris, anonymisation par défaut, chiffrement post‑quantique.\n\nDicte transforme la façon dont vous menez et gérez vos réunions.\n\nGrâce à une technologie d'IA avancée, Dicte crée des comptes-rendus automatiques sur la base des échanges enregistrés en réunion ou de notes vocales personnelles.\n\nDicte offre un enregistrement, une transcription et un traitement fluides des discussions en réunion, rendant chaque réunion plus productive et accessible.",
+        "score": 19,
+        "penalty": 1,
+        "erreurs": 1,
+        "diff": [
+          {
+            "type": "ok",
+            "word": "transcrire"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "analyser"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "décider"
+          },
+          {
+            "type": "ok",
+            "word": "en"
+          },
+          {
+            "type": "sub",
+            "from": "sécurité",
+            "to": "sécuriter",
+            "sev": "severe"
+          },
+          {
+            "type": "ok",
+            "word": "—"
+          },
+          {
+            "type": "ok",
+            "word": "serveurs"
+          },
+          {
+            "type": "ok",
+            "word": "dédiés"
+          },
+          {
+            "type": "ok",
+            "word": "à"
+          },
+          {
+            "type": "ok",
+            "word": "paris"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "anonymisation"
+          },
+          {
+            "type": "ok",
+            "word": "par"
+          },
+          {
+            "type": "ok",
+            "word": "défaut"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "chiffrement"
+          },
+          {
+            "type": "ok",
+            "word": "post‑quantique"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "dicte"
+          },
+          {
+            "type": "ok",
+            "word": "transforme"
+          },
+          {
+            "type": "ok",
+            "word": "la"
+          },
+          {
+            "type": "ok",
+            "word": "façon"
+          },
+          {
+            "type": "ok",
+            "word": "dont"
+          },
+          {
+            "type": "ok",
+            "word": "vous"
+          },
+          {
+            "type": "ok",
+            "word": "menez"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "gérez"
+          },
+          {
+            "type": "ok",
+            "word": "vos"
+          },
+          {
+            "type": "ok",
+            "word": "réunions"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "grâce"
+          },
+          {
+            "type": "ok",
+            "word": "à"
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "technologie"
+          },
+          {
+            "type": "ok",
+            "word": "d'ia"
+          },
+          {
+            "type": "ok",
+            "word": "avancée"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "dicte"
+          },
+          {
+            "type": "ok",
+            "word": "crée"
+          },
+          {
+            "type": "ok",
+            "word": "des"
+          },
+          {
+            "type": "ok",
+            "word": "comptes-rendus"
+          },
+          {
+            "type": "ok",
+            "word": "automatiques"
+          },
+          {
+            "type": "ok",
+            "word": "sur"
+          },
+          {
+            "type": "ok",
+            "word": "la"
+          },
+          {
+            "type": "ok",
+            "word": "base"
+          },
+          {
+            "type": "ok",
+            "word": "des"
+          },
+          {
+            "type": "ok",
+            "word": "échanges"
+          },
+          {
+            "type": "ok",
+            "word": "enregistrés"
+          },
+          {
+            "type": "ok",
+            "word": "en"
+          },
+          {
+            "type": "ok",
+            "word": "réunion"
+          },
+          {
+            "type": "ok",
+            "word": "ou"
+          },
+          {
+            "type": "ok",
+            "word": "de"
+          },
+          {
+            "type": "ok",
+            "word": "notes"
+          },
+          {
+            "type": "ok",
+            "word": "vocales"
+          },
+          {
+            "type": "ok",
+            "word": "personnelles"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          },
+          {
+            "type": "ok",
+            "word": "dicte"
+          },
+          {
+            "type": "ok",
+            "word": "offre"
+          },
+          {
+            "type": "ok",
+            "word": "un"
+          },
+          {
+            "type": "ok",
+            "word": "enregistrement"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "transcription"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "un"
+          },
+          {
+            "type": "ok",
+            "word": "traitement"
+          },
+          {
+            "type": "ok",
+            "word": "fluides"
+          },
+          {
+            "type": "ok",
+            "word": "des"
+          },
+          {
+            "type": "ok",
+            "word": "discussions"
+          },
+          {
+            "type": "ok",
+            "word": "en"
+          },
+          {
+            "type": "ok",
+            "word": "réunion"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "rendant"
+          },
+          {
+            "type": "ok",
+            "word": "chaque"
+          },
+          {
+            "type": "ok",
+            "word": "réunion"
+          },
+          {
+            "type": "ok",
+            "word": "plus"
+          },
+          {
+            "type": "ok",
+            "word": "productive"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "accessible"
+          },
+          {
+            "type": "ok",
+            "word": "."
+          }
+        ],
+        "createdAt": 1770150527718
+      }
+    ],
+    "createdAt": 1770150342191
+  },
+  "3hR0Nj": {
+    "texteReference": "J'ai dit \"Merci, au revoir bonne soirée et bon courage\" au policier qui m'a mis une amende",
+    "submissions": [
+      {
+        "pseudo": "mateo",
+        "texte": "J'ai dit \"Merci au revoir bonne soirée et bon courage\" au polisier qui m'a mit une amende",
+        "score": 18.75,
+        "penalty": 1.25,
+        "erreurs": 3,
+        "diff": [
+          {
+            "type": "ok",
+            "word": "j'ai"
+          },
+          {
+            "type": "ok",
+            "word": "dit"
+          },
+          {
+            "type": "ok",
+            "word": "\"merci"
+          },
+          {
+            "type": "del",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "au"
+          },
+          {
+            "type": "ok",
+            "word": "revoir"
+          },
+          {
+            "type": "ok",
+            "word": "bonne"
+          },
+          {
+            "type": "ok",
+            "word": "soirée"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "bon"
+          },
+          {
+            "type": "ok",
+            "word": "courage\""
+          },
+          {
+            "type": "ok",
+            "word": "au"
+          },
+          {
+            "type": "sub",
+            "from": "policier",
+            "to": "polisier",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "qui"
+          },
+          {
+            "type": "ok",
+            "word": "m'a"
+          },
+          {
+            "type": "sub",
+            "from": "mis",
+            "to": "mit",
+            "sev": "medium"
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "ok",
+            "word": "amende"
+          }
+        ],
+        "createdAt": 1770153306296
+      },
+      {
+        "pseudo": "mat",
+        "texte": "J'ai dit \"Merci, au revoir bonne soirée et bon courage\" au policier qui m'a mis une amande",
+        "score": 19.5,
+        "penalty": 0.5,
+        "erreurs": 1,
+        "diff": [
+          {
+            "type": "ok",
+            "word": "j'ai"
+          },
+          {
+            "type": "ok",
+            "word": "dit"
+          },
+          {
+            "type": "ok",
+            "word": "\"merci"
+          },
+          {
+            "type": "ok",
+            "word": ","
+          },
+          {
+            "type": "ok",
+            "word": "au"
+          },
+          {
+            "type": "ok",
+            "word": "revoir"
+          },
+          {
+            "type": "ok",
+            "word": "bonne"
+          },
+          {
+            "type": "ok",
+            "word": "soirée"
+          },
+          {
+            "type": "ok",
+            "word": "et"
+          },
+          {
+            "type": "ok",
+            "word": "bon"
+          },
+          {
+            "type": "ok",
+            "word": "courage\""
+          },
+          {
+            "type": "ok",
+            "word": "au"
+          },
+          {
+            "type": "ok",
+            "word": "policier"
+          },
+          {
+            "type": "ok",
+            "word": "qui"
+          },
+          {
+            "type": "ok",
+            "word": "m'a"
+          },
+          {
+            "type": "ok",
+            "word": "mis"
+          },
+          {
+            "type": "ok",
+            "word": "une"
+          },
+          {
+            "type": "sub",
+            "from": "amende",
+            "to": "amande",
+            "sev": "medium"
+          }
+        ],
+        "createdAt": 1770153328321
+      }
+    ],
+    "createdAt": 1770153286901
+  },
+  "1k9QER": {
+    "texteReference": "",
+    "submissions": [],
+    "createdAt": 1770153445804
   }
 }

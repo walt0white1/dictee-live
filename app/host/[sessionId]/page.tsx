@@ -292,18 +292,20 @@ export default function HostPage() {
                       );
                     }
 
-                    if (t.type === "del") {
-                      // ✅ on n'affiche pas les mots manquants dans le flux
-                      return null;
-                    }
+                   if (t.type === "del") {
+  return (
+    <span key={idx} className="tDel">
+      {t.word}{" "}
+    </span>
+  );
+}
 
-                   if (t.type === "sub") {
-  const sev = severity(t);
 
-  // sev=2 => rouge + animation (severePulse)
-  // sev=1 => orange sans animation
+                  if (t.type === "sub") {
   const cls =
-    sev === 2 ? "tSubWrong severePulse" : sev === 1 ? "tSubWrongMed" : "tSubWrong";
+    t.sev === "severe"
+      ? "tSubWrong severePulse"
+      : "tSubWrongMed";
 
   return (
     <span key={idx}>
@@ -312,6 +314,8 @@ export default function HostPage() {
     </span>
   );
 }
+
+
 
 
                     return null;

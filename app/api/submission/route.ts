@@ -16,22 +16,24 @@ export async function POST(req: Request) {
   const ref = sessions[sessionId].texteReference || "";
   const diff = diffWords(ref, texte);
 
-  // Barème /20 : -1 grosse faute, -0.5 petite faute
-  const penalty = computePenalty(diff);
+  // ✅ penalty = points retirés (ex: 1 grosse faute = 1, faute moyenne = 0.5, etc.)
+  // ✅ erreurs = nombre d'événements d'erreur (sub/ins/del)
+  const { penalty, erreurs } = computePenalty(diff);
 
   // Note sur 20, arrondie au demi-point, min 0
-  const score = Math.max(0, Math.round((20 - penalty) * 2) / 2);
+const score = Math.max(0, Math.round((20 - penalty) * 4) / 4);
 
   sessions[sessionId].submissions.push({
     pseudo,
     texte,
     score,
-    penalty, // remplace "erreurs" (tu peux garder erreurs aussi si tu veux)
+    penalty,
+    erreurs, // ✅ important pour l'affichage "Fautes"
     diff,
     createdAt: Date.now(),
   });
 
   writeSessions(sessions);
 
-  return Response.json({ success: true, score, penalty });
+  return Response.json({ success: true, score, penalty, erreurs });
 }
