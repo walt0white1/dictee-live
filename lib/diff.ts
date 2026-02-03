@@ -12,7 +12,6 @@ export function tokenize(s: string) {
     .filter(Boolean);
 }
 
-
 /* ================= WORD DISTANCE (phrase) ================= */
 
 export function wordDistance(a: string[], b: string[]) {
@@ -48,6 +47,61 @@ export type DiffToken =
   | { type: "ins"; word: string }
   | { type: "sub"; from: string; to: string };
 
+/* ================= HELPERS (petite/grosse faute) ================= */
+
+function isPunctuationToken(t: string) {
+  return /^[.,;:!?()]+$/.test(t);
+}
+
+function stripDiacritics(s: string) {
+  return (s || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+/**
+ * Calcule la pénalité à appliquer :
+ * - grosse faute = 1
+ * - petite faute = 0.5
+ *
+ * Petite faute par défaut :
+ * - ponctuation (ins/del)
+ * - substitution qui ne change QUE les accents (ex: "élève" -> "eleve")
+ */
+export function computePenalty(diff: DiffToken[]) {
+  let penalty = 0;
+
+  for (const t of diff) {
+    if (t.type === "ok") continue;
+
+    // Petite faute : ponctuation ajoutée/enlevée
+    if (t.type === "del" && isPunctuationToken(t.word)) {
+      penalty += 0.5;
+      continue;
+    }
+    if (t.type === "ins" && isPunctuationToken(t.word)) {
+      penalty += 0.5;
+      continue;
+    }
+
+    // Petite faute : accent uniquement (option activée ici)
+    if (t.type === "sub") {
+      const a = stripDiacritics(t.from);
+      const b = stripDiacritics(t.to);
+
+      if (a === b) {
+        penalty += 0.5;
+        continue;
+      }
+    }
+
+    // Sinon : grosse faute
+    penalty += 1;
+  }
+
+  return penalty;
+}
+
 /* ================= LEVENSHTEIN MOT À MOT ================= */
 
 function levenshteinWord(a: string, b: string) {
@@ -56,9 +110,7 @@ function levenshteinWord(a: string, b: string) {
   const la = a.length;
   const lb = b.length;
 
-  const dp = Array.from({ length: la + 1 }, () =>
-    Array(lb + 1).fill(0)
-  );
+  const dp = Array.from({ length: la + 1 }, () => Array(lb + 1).fill(0));
 
   for (let i = 0; i <= la; i++) dp[i][0] = i;
   for (let j = 0; j <= lb; j++) dp[0][j] = j;
@@ -128,10 +180,7 @@ export function diffWords(refText: string, userText: string): DiffToken[] {
     const cur = out[k];
     const next = out[k + 1];
 
-    if (
-      cur.type === "del" &&
-      next?.type === "ins"
-    ) {
+    if (cur.type === "del" && next?.type === "ins") {
       const dist = levenshteinWord(cur.word, next.word);
       const maxLen = Math.max(cur.word.length, next.word.length);
 
