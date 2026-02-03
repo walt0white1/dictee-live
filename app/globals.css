@@ -462,3 +462,9 @@ summary{
 }
 /* ===== Avatars ===== */
 /* ===== Avatars & identities (Host) ===== */
+/* 🟠 Erreur moyenne (sub proche) */
+.tSubWrongMed {
+  color: rgba(234, 88, 12, 0.95); /* orange */
+  font-weight: 700;
+  text-decoration: line-through;
+}

@@ -6,10 +6,20 @@ import { useEffect, useMemo, useState } from "react";
 function severity(t: any) {
   if (!t) return 0;
 
-  // ✅ On pulse UNIQUEMENT sur les erreurs rouges (sub)
-  if (t.type === "sub") return 2;
+  // sub = erreur de remplacement
+  if (t.type === "sub") {
+    const from = String(t.from ?? "");
+    const to = String(t.to ?? "");
 
-  // del/ins ne doivent pas pulser
+    // 🟠 "moyenne" si c'est très proche (ex: 1 seule lettre de différence)
+    // ex: "et" vs "est" => proche => orange
+    if (Math.abs(from.length - to.length) <= 1) return 1;
+
+    // 🔴 sinon grave
+    return 2;
+  }
+
+  // ins/del => pas de severity
   return 0;
 }
 
@@ -287,16 +297,22 @@ export default function HostPage() {
                       return null;
                     }
 
-                    if (t.type === "sub") {
-                      return (
-                        <span key={idx}>
-                          {/* ❌ mauvais mot (viewer) => barré rouge + pulse */}
-                          <span className={"tSubWrong" + extra}>{t.to}</span>{" "}
-                          {/* ✅ bon mot (référence) => à côté (sans pulse) */}
-                          <span className="tSubCorrect">{t.from}</span>{" "}
-                        </span>
-                      );
-                    }
+                   if (t.type === "sub") {
+  const sev = severity(t);
+
+  // sev=2 => rouge + animation (severePulse)
+  // sev=1 => orange sans animation
+  const cls =
+    sev === 2 ? "tSubWrong severePulse" : sev === 1 ? "tSubWrongMed" : "tSubWrong";
+
+  return (
+    <span key={idx}>
+      <span className={cls}>{t.to}</span>{" "}
+      <span className="tSubCorrect">{t.from}</span>{" "}
+    </span>
+  );
+}
+
 
                     return null;
                   });
