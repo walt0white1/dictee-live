@@ -31,12 +31,35 @@ html, body{
 }
 
 body{
-  background:
-    radial-gradient(900px 520px at 15% 0%, rgba(59,130,246,.18), transparent 60%),
-    radial-gradient(700px 520px at 85% 0%, rgba(239,68,68,.12), transparent 58%),
-    linear-gradient(180deg,#f5f9ff 0%,#f7fbff 100%);
+   background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(56,189,248,.45), transparent 60%),
+    radial-gradient(1200px 700px at 85% 10%, rgba(99,102,241,.40), transparent 65%),
+    radial-gradient(900px 500px at 50% 80%, rgba(14,165,233,.25), transparent 70%),
+    linear-gradient(
+      180deg,
+      #eaf4ff 0%,
+      #dbeafe 30%,
+      #c7ddff 65%,
+      #b6d2ff 100%
+    );
+ 
   background-repeat:no-repeat;
   background-attachment:fixed;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.04),
+      transparent 40%,
+      transparent 60%,
+      rgba(255,255,255,.04)
+    );
+  opacity:.25;
 }
 
 /* ================= STREAM MODE ================= */
@@ -437,3 +460,5 @@ summary{
 .tIns:has(span){
   opacity: .5;
 }
+/* ===== Avatars ===== */
+/* ===== Avatars & identities (Host) ===== */
