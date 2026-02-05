@@ -111,7 +111,7 @@ export default function HostPage() {
       {/* Header */}
       <div className="row" style={{ justifyContent: "space-between" }}>
         <div>
-          <h1 className="h1">ELM DICTE</h1>
+          <h1 className="h1">ELM DICTEE</h1>
           <p className="sub">Classement live + corrections + lien chat</p>
         </div>
 
